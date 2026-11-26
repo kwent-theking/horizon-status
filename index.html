@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Horizon · готовность</title>
+<style>
+  :root {
+    --bg: #15120e; --panel: #1f1a14; --line: #3a3026; --text: #efe6d8; --muted: #a8998a;
+    --brass: #d9a54a; --copper: #c06a3c; --live: #6fcf7c; --ci: #d9a54a; --draft: #7d8fb3; --todo: #5a4f45;
+    --mono: ui-monospace, "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+    --sans: "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: radial-gradient(1200px 600px at 15% -10%, #2a2117 0%, var(--bg) 60%); color: var(--text);
+         font-family: var(--sans); line-height: 1.45; min-height: 100vh; }
+  main { max-width: 1080px; margin: 0 auto; padding: 32px 20px 56px; }
+  header { display: grid; grid-template-columns: 1fr auto; gap: 8px 24px; align-items: end; margin-bottom: 28px; }
+  h1 { margin: 0; font-size: 15px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .goal { grid-column: 1 / -1; font-size: 14px; color: var(--muted); }
+  .hero { background: linear-gradient(180deg, #241d16, var(--panel)); border: 1px solid var(--line); border-radius: 14px;
+          padding: 26px 26px 22px; display: grid; grid-template-columns: auto 1fr; gap: 10px 28px; align-items: center; }
+  .pct { font-family: var(--mono); font-size: clamp(64px, 12vw, 112px); font-weight: 700; color: var(--brass); line-height: .9; }
+  .pct small { font-size: .35em; color: var(--muted); margin-left: 4px; }
+  .bar { height: 14px; background: #120f0b; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; position: relative; }
+  .bar > i { display: block; width: 100%; height: 100%; background: linear-gradient(90deg, var(--copper), var(--brass)); border-radius: 999px;
+             transform-origin: left center; transform: scaleX(0); transition: transform .8s cubic-bezier(.16,1,.3,1); }
+  .bar .target { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--text); opacity: .5; }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--muted); margin-top: 10px; }
+  .meta b { color: var(--text); font-weight: 600; font-family: var(--mono); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; margin-top: 18px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px 16px 12px; }
+  .card h2 { margin: 0 0 4px; font-size: 15px; font-weight: 600; display: flex; justify-content: space-between; gap: 10px; }
+  .card h2 span { font-family: var(--mono); color: var(--brass); }
+  .weight { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+  .card .bar { height: 8px; margin-bottom: 12px; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { display: grid; grid-template-columns: 74px 1fr; gap: 10px; padding: 6px 0; border-top: 1px solid #2b241c; font-size: 13.5px; }
+  .chip { font-family: var(--mono); font-size: 11px; text-align: center; border-radius: 6px; padding: 2px 0; align-self: start;
+          border: 1px solid currentColor; }
+  .s-live_ok { color: var(--live); } .s-ci_ok { color: var(--ci); } .s-draft { color: var(--draft); } .s-todo { color: var(--muted); }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+  @media (max-width: 760px) { .row, .hero { grid-template-columns: 1fr; } }
+  .ci { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .branch { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: #17130f; border: 1px solid var(--line);
+            border-radius: 10px; font-family: var(--mono); font-size: 13px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--todo); flex: none; }
+  .b-green .dot { background: var(--live); box-shadow: 0 0 10px var(--live); }
+  .b-running .dot { background: var(--brass); animation: pulse 1.4s ease-in-out infinite; }
+  .b-fail .dot { background: #e0574a; }
+  @keyframes pulse { 50% { opacity: .35; } }
+  @media (prefers-reduced-motion: reduce) { .b-running .dot { animation: none; } .bar > i { transition: none; } }
+  .feed li { grid-template-columns: 150px 1fr 48px; }
+  .feed time { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  .feed .p { font-family: var(--mono); color: var(--brass); text-align: right; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 12px; color: var(--muted); margin-top: 22px; }
+  .legend .chip { display: inline-block; width: 64px; margin-right: 6px; }
+  footer { margin-top: 14px; font-size: 12px; color: var(--muted); }
+  .err { color: #e0574a; font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Horizon · готовность к игре с друзьями</h1>
+    <div class="meta" style="margin:0"><span>обновлено <b id="updated">…</b></span></div>
+    <div class="goal">Цель: «можно заходить играть с друзьями». Процент считается по правилу ниже, а не на глаз.</div>
+  </header>
+
+  <section class="hero" aria-labelledby="overall-label">
+    <div class="pct" id="overall" aria-live="polite">…<small>%</small></div>
+    <div>
+      <div id="overall-label" class="weight">общий прогресс · цель плана <b id="target">…</b>%</div>
+      <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="overall-bar">
+        <i id="overall-fill"></i><span class="target" id="target-mark"></span>
+      </div>
+      <div class="meta">
+        <span>срок: <b id="eta">…</b></span>
+        <span>HEAD <b id="head">…</b></span>
+        <span>зелёный CI <b id="run">…</b></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid" id="subsystems" aria-label="Подсистемы"></section>
+
+  <section class="row">
+    <div class="card">
+      <h2>Ветки CI</h2>
+      <div class="weight">зелёная · идёт · упала · ждёт</div>
+      <div class="ci" id="ci"></div>
+    </div>
+    <div class="card">
+      <h2>Лента вех</h2>
+      <div class="weight">последние сверху</div>
+      <ul class="feed" id="feed"></ul>
+    </div>
+  </section>
+
+  <div class="legend">
+    <span><span class="chip s-live_ok">live_ok</span>проверено вживую · 1.0</span>
+    <span><span class="chip s-ci_ok">ci_ok</span>закоммичено, прошло CI · 0.75</span>
+    <span><span class="chip s-draft">draft</span>код без CI · 0.25</span>
+    <span><span class="chip s-todo">todo</span>не начато · 0</span>
+  </div>
+  <footer><span id="formula"></span> <span class="err" id="err"></span></footer>
+</main>
+<script>
+const LABEL = { green: "зелёная", running: "идёт", fail: "упала", idle: "ждёт" };
+const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+const fill = (i, pct) => { i.style.transform = "scaleX(" + Math.max(0, Math.min(100, pct)) / 100 + ")"; };
+function bar(pct) { const b = el("div", "bar"); const i = el("i"); fill(i, pct); b.append(i); return b; }
+function render(s) {
+  document.getElementById("updated").textContent = s.updated_at_uk || "…";
+  document.getElementById("overall").firstChild.textContent = s.overall_pct;
+  fill(document.getElementById("overall-fill"), s.overall_pct);
+  document.getElementById("overall-bar").setAttribute("aria-valuenow", s.overall_pct);
+  document.getElementById("target").textContent = s.target_pct ?? "…";
+  document.getElementById("target-mark").style.left = (s.target_pct ?? 100) + "%";
+  document.getElementById("eta").textContent = s.eta_honest || "…";
+  document.getElementById("head").textContent = s.head_short || "…";
+  document.getElementById("run").textContent = s.latest_green_ci_run || "…";
+  document.getElementById("formula").textContent = "Формула: " + (s.formula?.rule || "");
+  const subs = document.getElementById("subsystems"); subs.replaceChildren();
+  for (const sub of s.subsystems || []) {
+    const card = el("article", "card");
+    const h = el("h2", null, sub.name); h.append(el("span", null, sub.pct + "%")); card.append(h);
+    card.append(el("div", "weight", "вес " + Math.round(sub.weight * 100) + "% в общем"));
+    card.append(bar(sub.pct));
+    const ul = el("ul");
+    for (const it of sub.items || []) {
+      const li = el("li"); li.append(el("span", "chip s-" + it.status, it.status)); li.append(el("span", null, it.label)); ul.append(li);
+    }
+    card.append(ul); subs.append(card);
+  }
+  const ci = document.getElementById("ci"); ci.replaceChildren();
+  for (const [name, state] of Object.entries(s.ci_branches || {})) {
+    const b = el("div", "branch b-" + state); b.append(el("span", "dot")); b.append(el("span", null, name + " · " + (LABEL[state] || state))); ci.append(b);
+  }
+  const feed = document.getElementById("feed"); feed.replaceChildren();
+  for (const m of [...(s.milestones || [])].reverse().slice(0, 30)) {
+    const li = el("li"); li.append(el("time", null, m.time_uk)); li.append(el("span", null, m.note)); li.append(el("span", "p", (m.overall_pct ?? "") + "%")); feed.append(li);
+  }
+}
+async function load() {
+  try {
+    const r = await fetch("status.json?t=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    render(await r.json()); document.getElementById("err").textContent = "";
+  } catch (e) { document.getElementById("err").textContent = "не удалось обновить: " + e.message; }
+}
+load(); setInterval(load, 30000);
+</script>
+</body>
+</html>

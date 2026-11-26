@@ -1,0 +1,93 @@
+{
+  "project": "Horizon",
+  "updated_at_uk": "2026-11-26 14:00 UK",
+  "head_short": "3edec412e1",
+  "latest_green_ci_run": "45833260213",
+  "formula": {
+    "rule": "overall_pct = round(sum(weight * subsystem_pct)); subsystem_pct = round(mean(item status weight) * 100)",
+    "status_weights": {
+      "todo": 0,
+      "draft": 0.25,
+      "ci_ok": 0.75,
+      "live_ok": 1
+    }
+  },
+  "overall_pct": 47,
+  "target_pct": 97,
+  "eta_honest": "12.5–14 ч календарно (3 окна Claude Pro; ~8.5 ч активной работы)",
+  "ci_branches": {
+    "ci/proto": "green",
+    "ci/proto-b": "idle",
+    "ci/proto-c": "idle",
+    "ci/proto-d": "idle"
+  },
+  "subsystems": [
+    {
+      "id": "core_net",
+      "name": "Сеть 767→777, вход и коллизии",
+      "weight": 0.2,
+      "pct": 50,
+      "items": [
+        {"id": "cn-1", "label": "Вход на сервер BelmoGrad и протокол 767→777", "status": "live_ok"},
+        {"id": "cn-2", "label": "Базовая синхронизация чанков, блоков и сущностей", "status": "live_ok"},
+        {"id": "cn-3", "label": "Прогон horizon-probe по 128 модам на свежем RC", "status": "todo"},
+        {"id": "cn-4", "label": "Соседние коллизии и outline 3x3x3 (FactsExporter JSON)", "status": "todo"}
+      ]
+    },
+    {
+      "id": "cbc",
+      "name": "Create Big Cannons (порт 5.11.7)",
+      "weight": 0.25,
+      "pct": 72,
+      "items": [
+        {"id": "cbc-1", "label": "Выстрел: плюмы, дым с градиентом/ветром, волна, тряска", "status": "live_ok"},
+        {"id": "cbc-2", "label": "Автопушка: откат, гильзы, звук (пакет id 26)", "status": "live_ok"},
+        {"id": "cbc-3", "label": "След и звук пролёта снаряда большой пушки", "status": "live_ok"},
+        {"id": "cbc-4", "label": "Пакет взрыва (id 20): звуки, волна, облако, отброс", "status": "ci_ok"},
+        {"id": "cbc-5", "label": "Облака шрапнели/зенитки, обломки мортиры, id 21 жидкостный, дым, газ", "status": "ci_ok"},
+        {"id": "cbc-6", "label": "Трассеры большой/автопушки + снаряды автопушки", "status": "ci_ok"},
+        {"id": "cbc-7", "label": "Попадание в блок (id 23 JSON) и трещины на блоках (id 24)", "status": "draft"},
+        {"id": "cbc-8", "label": "Отрисовка мины миномёта", "status": "draft"}
+      ]
+    },
+    {
+      "id": "create",
+      "name": "Create и аддоны (PNG-ревизия)",
+      "weight": 0.25,
+      "pct": 38,
+      "items": [
+        {"id": "cr-1", "label": "Партии 1–4 (arm, contraptions, levers, logistics)", "status": "ci_ok"},
+        {"id": "cr-2", "label": "deployer.rs и create_piston.rs", "status": "draft"},
+        {"id": "cr-3", "label": "fluids.rs, flap_display.rs, indicators.rs", "status": "draft"},
+        {"id": "cr-4", "label": "extra_addons.rs (лафет, принтер, щётки, кинетика руд)", "status": "draft"}
+      ]
+    },
+    {
+      "id": "perf_ci",
+      "name": "Перф, замеры гипотез и быстрый CI",
+      "weight": 0.2,
+      "pct": 35,
+      "items": [
+        {"id": "pc-1", "label": "Последний полный зелёный CI (test + exe + launcher)", "status": "live_ok"},
+        {"id": "pc-2", "label": "Task A + M2 HUD-атлас + флаг M1 + spans.rs + gpu_memory.rs", "status": "ci_ok"},
+        {"id": "pc-3", "label": "A2 ModTags + ленивые 964 языка", "status": "todo"},
+        {"id": "pc-4", "label": "Быстрый CI (nextest + RC-only windows-exe) + bg-warm-cache.ps1", "status": "todo"},
+        {"id": "pc-5", "label": "Live-замер гипотез: Private WS RAM (M1) и причина ~30 FPS", "status": "todo"}
+      ]
+    },
+    {
+      "id": "release_128",
+      "name": "Проверка 128 модов (ARR-safe) и релиз",
+      "weight": 0.1,
+      "pct": 25,
+      "items": [
+        {"id": "r-1", "label": "Сборка horizon-friends-launcher в CI", "status": "ci_ok"},
+        {"id": "r-2", "label": "Локальный чек ключевых ARR-мобов 128 модов + friend-bugreport.ps1", "status": "todo"},
+        {"id": "r-3", "label": "Выкладка RC-архива на VPS (по «да» владельца) и старт друзей", "status": "todo"}
+      ]
+    }
+  ],
+  "milestones": [
+    {"time_uk": "2026-11-26 14:00 UK", "note": "Стартовый срез по HEAD 3edec412e1 (8 коммитов, зелёный CI 45833260213)", "overall_pct": 47}
+  ]
+}
