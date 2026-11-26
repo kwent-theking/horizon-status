@@ -7,7 +7,7 @@
 <style>
   :root {
     --bg: #15120e; --panel: #1f1a14; --line: #3a3026; --text: #efe6d8; --muted: #a8998a;
-    --brass: #d9a54a; --copper: #c06a3c; --live: #6fcf7c; --ci: #d9a54a; --draft: #7d8fb3; --todo: #5a4f45;
+    --brass: #d9a54a; --copper: #c06a3c; --live: #6fcf7c; --ci: #d9a54a; --draft: #7d8fb3; --todo: #5a4f45; --sim: #4fa3e0;
     --mono: ui-monospace, "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
     --sans: "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
   }
@@ -50,6 +50,11 @@
   .chip { font-family: var(--mono); font-size: 11px; text-align: center; border-radius: 6px; padding: 2px 0; align-self: start;
           border: 1px solid currentColor; }
   .s-live_ok { color: var(--live); } .s-ci_ok { color: var(--ci); } .s-draft { color: var(--draft); } .s-todo { color: var(--muted); }
+  .s-sim_ok { color: var(--sim); }
+  .bar.sim > i { background: linear-gradient(90deg, #2c6aa8, var(--sim)); }
+  .sim-label { margin: 14px 0 6px; } .sim-label b { color: var(--sim); font-family: var(--mono); }
+  .sim-note { font-size: 12px; color: var(--muted); margin-top: 6px; max-width: 62ch; }
+  .card .bar.sim { height: 4px; margin: -8px 0 12px; }
   .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
   @media (max-width: 760px) { .row, .hero { grid-template-columns: 1fr; } }
   .ci { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
@@ -93,6 +98,12 @@
       <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="overall-bar">
         <i id="overall-fill"></i><span class="target" id="target-mark"></span>
       </div>
+      <div class="weight sim-label" id="sim-label">синяя · не проверено вживую · <b id="sim-pct">…</b>%</div>
+      <div class="bar sim" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-labelledby="sim-label" id="sim-bar">
+        <i id="sim-fill"></i>
+      </div>
+      <div class="sim-note">Синяя — это то, что проверено имитацией процесса клиента (настоящий сервер и клиент Horizon
+        на машине CI), но ещё не проверено вживую. Жёлтая — общий прогресс; живая проверка будет на последней стадии.</div>
       <div class="meta">
         <span>срок: <b id="eta">…</b></span>
         <span>HEAD <b id="head">…</b></span>
@@ -124,6 +135,7 @@
 
   <div class="legend">
     <span><span class="chip s-live_ok">live_ok</span>проверено вживую · 1.0</span>
+    <span><span class="chip s-sim_ok">sim_ok</span>проверено имитацией клиента в CI, не вживую · 0.75 (в синей 1.0)</span>
     <span><span class="chip s-ci_ok">ci_ok</span>закоммичено, прошло CI · 0.75</span>
     <span><span class="chip s-draft">draft</span>код без CI · 0.25</span>
     <span><span class="chip s-todo">todo</span>не начато · 0</span>
@@ -142,6 +154,10 @@ function render(s) {
   document.getElementById("overall").firstChild.textContent = s.overall_pct;
   fill(document.getElementById("overall-fill"), s.overall_pct);
   document.getElementById("overall-bar").setAttribute("aria-valuenow", s.overall_pct);
+  const sim = s.overall_sim_pct ?? s.overall_pct;
+  document.getElementById("sim-pct").textContent = sim;
+  fill(document.getElementById("sim-fill"), sim);
+  document.getElementById("sim-bar").setAttribute("aria-valuenow", sim);
   document.getElementById("target").textContent = s.target_pct ?? "…";
   document.getElementById("target-mark").style.left = (s.target_pct ?? 100) + "%";
   document.getElementById("eta").textContent = s.eta_honest || "…";
@@ -154,6 +170,7 @@ function render(s) {
     const h = el("h2", null, sub.name); h.append(el("span", null, sub.pct + "%")); card.append(h);
     card.append(el("div", "weight", "вес " + Math.round(sub.weight * 100) + "% в общем"));
     card.append(bar(sub.pct));
+    if ((sub.sim_pct ?? sub.pct) > sub.pct) { const b = bar(sub.sim_pct); b.classList.add("sim"); b.title = "с имитацией клиента: " + sub.sim_pct + "%"; card.append(b); }
     const ul = el("ul");
     for (const it of sub.items || []) {
       const li = el("li"); li.append(el("span", "chip s-" + it.status, it.status)); li.append(el("span", null, it.label)); ul.append(li);
