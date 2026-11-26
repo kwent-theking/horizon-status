@@ -67,6 +67,15 @@
   .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 12px; color: var(--muted); margin-top: 22px; }
   .legend .chip { display: inline-block; width: 64px; margin-right: 6px; }
   footer { margin-top: 14px; font-size: 12px; color: var(--muted); }
+  .shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .shots figure { margin: 0; background: #120f0b; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .shots a { display: block; aspect-ratio: 16 / 9; background: #0d0b08; }
+  .shots img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform .25s ease; }
+  .shots a:hover img, .shots a:focus-visible img { transform: scale(1.03); }
+  .shots a:focus-visible { outline: 2px solid var(--brass); outline-offset: -2px; }
+  .shots figcaption { padding: 8px 10px 10px; font-size: 12.5px; }
+  .shots time { display: block; font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+  .credits { margin-top: 6px; }
   .err { color: #e0574a; font-size: 13px; }
 </style>
 </head>
@@ -108,13 +117,21 @@
     </div>
   </section>
 
+  <section class="card" style="margin-top:14px" aria-labelledby="ev-title">
+    <h2 id="ev-title">Доказательства</h2>
+    <div class="weight">кадры из CI и живых прогонов · новые сверху · клик открывает полный размер</div>
+    <div class="shots" id="shots"></div>
+  </section>
+
   <div class="legend">
     <span><span class="chip s-live_ok">live_ok</span>проверено вживую · 1.0</span>
     <span><span class="chip s-ci_ok">ci_ok</span>закоммичено, прошло CI · 0.75</span>
     <span><span class="chip s-draft">draft</span>код без CI · 0.25</span>
     <span><span class="chip s-todo">todo</span>не начато · 0</span>
   </div>
-  <footer><span id="formula"></span> <span class="err" id="err"></span></footer>
+  <footer><span id="formula"></span> <span class="err" id="err"></span>
+    <div class="credits">Кадры: Create (MIT), Create Big Cannons (текстуры CC BY-NC-SA 4.0, Cannoneers of Create), Minecraft © Mojang.
+      Неофициальный проект, не связан с Mojang и авторами модов.</div></footer>
 </main>
 <script>
 const LABEL = { green: "зелёная", running: "идёт", fail: "упала", idle: "ждёт" };
@@ -152,6 +169,16 @@ function render(s) {
   for (const m of [...(s.milestones || [])].reverse().slice(0, 30)) {
     const li = el("li"); li.append(el("time", null, m.time_uk)); li.append(el("span", null, m.note)); li.append(el("span", "p", (m.overall_pct ?? "") + "%")); feed.append(li);
   }
+  const shots = document.getElementById("shots"); shots.replaceChildren();
+  for (const e of [...(s.evidence || [])].reverse()) {
+    if (!/^shots\/[0-9a-f]{16}\.png$/.test(e.image)) continue;
+    const fig = el("figure"); const a = el("a"); a.href = e.image; a.target = "_blank"; a.rel = "noopener";
+    const img = el("img"); img.src = e.image; img.alt = e.caption; img.loading = "lazy"; img.decoding = "async";
+    a.append(img); fig.append(a);
+    const cap = el("figcaption"); cap.append(el("time", null, e.time_uk)); cap.append(el("span", null, e.caption)); fig.append(cap);
+    shots.append(fig);
+  }
+  if (!shots.children.length) shots.append(el("div", "weight", "пока нет"));
 }
 async function load() {
   try {
