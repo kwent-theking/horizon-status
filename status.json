@@ -1,8 +1,8 @@
 {
   "project": "Horizon",
-  "updated_at_uk": "2026-11-26 16:06 UK",
-  "head_short": "d7fb41e9c9",
-  "latest_green_ci_run": "45853112692",
+  "updated_at_uk": "2026-11-26 16:30 UK",
+  "head_short": "c947d055d1",
+  "latest_green_ci_run": "45857949180",
   "formula": {
     "rule": "overall_pct = round(sum(weight * subsystem_pct)); subsystem_pct = round(mean(item status weight) * 100)",
     "status_weights": {
@@ -12,7 +12,7 @@
       "live_ok": 1
     }
   },
-  "overall_pct": 50,
+  "overall_pct": 53,
   "target_pct": 97,
   "eta_honest": "12.5–14 ч календарно (3 окна Claude Pro; ~8.5 ч активной работы)",
   "ci_branches": {
@@ -130,7 +130,7 @@
       "id": "perf_ci",
       "name": "Перф, замеры гипотез и быстрый CI",
       "weight": 0.2,
-      "pct": 35,
+      "pct": 50,
       "items": [
         {
           "id": "pc-1",
@@ -145,7 +145,7 @@
         {
           "id": "pc-3",
           "label": "A2 ModTags + ленивые 964 языка",
-          "status": "todo"
+          "status": "ci_ok"
         },
         {
           "id": "pc-4",
@@ -193,6 +193,11 @@
       "time_uk": "2026-11-26 16:06 UK",
       "note": "CBC: попадания (id 23), трещины (id 24) и мина прошли CI и закоммичены",
       "overall_pct": 50
+    },
+    {
+      "time_uk": "2026-11-26 16:30 UK",
+      "note": "A2 ModTags (уже пакетная, закреплена тестом) и ленивые языки прошли CI",
+      "overall_pct": 53
     }
   ]
 }
