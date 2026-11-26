@@ -1,8 +1,8 @@
 {
   "project": "Horizon",
-  "updated_at_uk": "2026-11-26 20:36 UK",
-  "head_short": "e5d66ec796",
-  "latest_green_ci_run": "45880553830",
+  "updated_at_uk": "2026-11-26 21:18 UK",
+  "head_short": "e80539029d",
+  "latest_green_ci_run": "45895971182",
   "formula": {
     "rule": "overall_pct = round(sum(weight * subsystem_pct)); subsystem_pct = round(mean(item status weight) * 100)",
     "status_weights": {
@@ -223,6 +223,11 @@
       "time_uk": "2026-11-26 20:36 UK",
       "note": "Фиксы Create (заход 1): компилируются, CI зелёный, но 3 дефекта остались на картинке — заход 2 у Codex",
       "overall_pct": 60
+    },
+    {
+      "time_uk": "2026-11-26 21:18 UK",
+      "note": "Create: исправлены тележки, каток, цепной конвейер, сдвижные двери, умный жёлоб (CI зелёный, старые сцены без регрессий)",
+      "overall_pct": 60
     }
   ],
   "evidence": [
@@ -270,6 +275,11 @@
       "time_uk": "2026-11-26 20:36 UK",
       "image": "shots/6b1062a646b47694.png",
       "caption": "CI-рендер после 1-го захода фиксов: цепь конвейера появилась; тележки, сдвижные двери, каток ещё сломаны в «после»"
+    },
+    {
+      "time_uk": "2026-11-26 21:18 UK",
+      "image": "shots/10e19e126f1f7027.png",
+      "caption": "CI-рендер после 2-го захода: тележки, каток, цепной конвейер, сдвижные двери и умный жёлоб исправлены"
     }
   ]
 }
