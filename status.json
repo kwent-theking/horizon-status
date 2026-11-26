@@ -1,8 +1,8 @@
 {
   "project": "Horizon",
-  "updated_at_uk": "2026-11-26 17:14 UK",
-  "head_short": "24b300943f",
-  "latest_green_ci_run": "45863890845",
+  "updated_at_uk": "2026-11-26 19:14 UK",
+  "head_short": "e5d66ec796",
+  "latest_green_ci_run": "45880553830",
   "formula": {
     "rule": "overall_pct = round(sum(weight * subsystem_pct)); subsystem_pct = round(mean(item status weight) * 100)",
     "status_weights": {
@@ -207,6 +207,11 @@
     {
       "time_uk": "2026-11-26 17:14 UK",
       "note": "Коллизии 3x3x3: код оракула и клиента прошёл CI; нужен экспорт на сервере (с разрешения владельца)",
+      "overall_pct": 60
+    },
+    {
+      "time_uk": "2026-11-26 19:14 UK",
+      "note": "CI PNG партий 1–4 Create: отрисованы; найдено 3 дефекта (большая тележка, сдвижные двери, каток) — в работе",
       "overall_pct": 60
     }
   ]
