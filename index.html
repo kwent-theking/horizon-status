@@ -67,7 +67,7 @@
   .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 12px; color: var(--muted); margin-top: 22px; }
   .legend .chip { display: inline-block; width: 64px; margin-right: 6px; }
   footer { margin-top: 14px; font-size: 12px; color: var(--muted); }
-  .shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); gap: 12px; }
   .shots figure { margin: 0; background: #120f0b; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
   .shots a { display: block; aspect-ratio: 16 / 9; background: #0d0b08; }
   .shots img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform .25s ease; }
