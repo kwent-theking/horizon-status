@@ -1,6 +1,6 @@
 {
   "project": "Horizon",
-  "updated_at_uk": "2026-11-26 16:30 UK",
+  "updated_at_uk": "2026-11-26 16:45 UK",
   "head_short": "c947d055d1",
   "latest_green_ci_run": "45857949180",
   "formula": {
@@ -12,7 +12,7 @@
       "live_ok": 1
     }
   },
-  "overall_pct": 53,
+  "overall_pct": 59,
   "target_pct": 97,
   "eta_honest": "12.5–14 ч календарно (3 окна Claude Pro; ~8.5 ч активной работы)",
   "ci_branches": {
@@ -102,7 +102,7 @@
       "id": "create",
       "name": "Create и аддоны (PNG-ревизия)",
       "weight": 0.25,
-      "pct": 38,
+      "pct": 62,
       "items": [
         {
           "id": "cr-1",
@@ -112,12 +112,12 @@
         {
           "id": "cr-2",
           "label": "deployer.rs и create_piston.rs",
-          "status": "draft"
+          "status": "ci_ok"
         },
         {
           "id": "cr-3",
           "label": "fluids.rs, flap_display.rs, indicators.rs",
-          "status": "draft"
+          "status": "ci_ok"
         },
         {
           "id": "cr-4",
@@ -198,6 +198,11 @@
       "time_uk": "2026-11-26 16:30 UK",
       "note": "A2 ModTags (уже пакетная, закреплена тестом) и ленивые языки прошли CI",
       "overall_pct": 53
+    },
+    {
+      "time_uk": "2026-11-26 16:45 UK",
+      "note": "CI PNG: сцены Create (deployer, поршни, жидкости, табло) и CBC отрисованы, явных поломок нет; эталона нет",
+      "overall_pct": 59
     }
   ]
 }
