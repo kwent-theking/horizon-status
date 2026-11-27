@@ -1,8 +1,8 @@
 {
   "project": "Horizon",
-  "updated_at_uk": "2026-11-27 21:39 UK",
-  "head_short": "937e363295",
-  "latest_green_ci_run": "46062366540",
+  "updated_at_uk": "2026-11-27 21:57 UK",
+  "head_short": "e6d1ac176e",
+  "latest_green_ci_run": "46071131870",
   "formula": {
     "rule": "overall_pct = round(sum(weight * subsystem_pct)); subsystem_pct = round(mean(item status weight) * 100); overall_sim_pct: the same with sim_ok = 1 (verified by the CI live stand, not live)",
     "status_weights": {
@@ -313,6 +313,11 @@
     {
       "time_uk": "2026-11-27 21:39 UK",
       "note": "pc-2/pc-3 отработали вживую в окнах сегодня: учёт памяти GPU в логе, HUD-атлас, теги модов и языки",
+      "overall_pct": 86
+    },
+    {
+      "time_uk": "2026-11-27 21:57 UK",
+      "note": "Память клиента с 128 модами: титул 1.75 → ~1.0 ГБ за день (факты, грани моделей, таблицы пака)",
       "overall_pct": 86
     }
   ],
