@@ -1,6 +1,6 @@
 {
   "project": "Horizon",
-  "updated_at_uk": "2026-11-27 22:52 UK",
+  "updated_at_uk": "2026-11-27 23:05 UK",
   "head_short": "606d92c931",
   "latest_green_ci_run": "46071131870",
   "formula": {
@@ -201,7 +201,7 @@
         {
           "id": "ae-2",
           "label": "Стенд в CI с Аэронавтикой и Sable: вход и сборка корабля",
-          "status": "todo"
+          "status": "ci_ok"
         },
         {
           "id": "ae-3",
@@ -224,8 +224,8 @@
           "status": "todo"
         }
       ],
-      "pct": 12,
-      "sim_pct": 12
+      "pct": 25,
+      "sim_pct": 25
     }
   ],
   "milestones": [
@@ -368,6 +368,11 @@
       "time_uk": "2026-11-27 22:52 UK",
       "note": "Аэронавтика: разобран протокол Sable, план порта по фазам в docs; в Horizon уже есть частичный порт снимков и под-уровней",
       "overall_pct": 86
+    },
+    {
+      "time_uk": "2026-11-27 23:05 UK",
+      "note": "Аэронавтика, фаза 0: Sable на стенде в CI, корабль собирается командой, клиент получает позы; дальше — отрисовка корабля",
+      "overall_pct": 86
     }
   ],
   "evidence": [
@@ -500,6 +505,11 @@
       "time_uk": "2026-11-27 21:32 UK",
       "image": "shots/107f8537ea6474a7.png",
       "caption": "Живое окно: аддоны Create — принтер CEI, вальцы и генератор Crafts & Additions, щётки New Age"
+    },
+    {
+      "time_uk": "2026-11-27 23:05 UK",
+      "image": "shots/09ae3d93b4fb6395.png",
+      "caption": "Стенд в CI с Sable: плот перед сборкой в корабль (после сборки Horizon его пока не рисует)"
     }
   ],
   "overall_sim_pct": 87
