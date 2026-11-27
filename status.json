@@ -1,6 +1,6 @@
 {
   "project": "Horizon",
-  "updated_at_uk": "2026-11-27 21:25 UK",
+  "updated_at_uk": "2026-11-27 21:32 UK",
   "head_short": "937e363295",
   "latest_green_ci_run": "46062366540",
   "formula": {
@@ -13,7 +13,7 @@
       "sim_ok": 0.75
     }
   },
-  "overall_pct": 82,
+  "overall_pct": 84,
   "target_pct": 97,
   "eta_honest": "12.5–14 ч календарно (3 окна Claude Pro; ~8.5 ч активной работы)",
   "ci_branches": {
@@ -105,7 +105,7 @@
       "id": "create",
       "name": "Create и аддоны (PNG-ревизия)",
       "weight": 0.25,
-      "pct": 94,
+      "pct": 100,
       "items": [
         {
           "id": "cr-1",
@@ -125,10 +125,10 @@
         {
           "id": "cr-4",
           "label": "extra_addons.rs (лафет, принтер, щётки, кинетика руд)",
-          "status": "ci_ok"
+          "status": "live_ok"
         }
       ],
-      "sim_pct": 94
+      "sim_pct": 100
     },
     {
       "id": "perf_ci",
@@ -304,6 +304,11 @@
       "time_uk": "2026-11-27 21:25 UK",
       "note": "Create проверен вживую (рендер механизмов, жидкостей, логистики, индикаторов)",
       "overall_pct": 82
+    },
+    {
+      "time_uk": "2026-11-27 21:32 UK",
+      "note": "Аддоны Create проверены вживую на мини-сервере с их модами",
+      "overall_pct": 84
     }
   ],
   "evidence": [
@@ -431,7 +436,12 @@
       "time_uk": "2026-11-27 21:25 UK",
       "image": "shots/c4bce4ea0b85ce70.png",
       "caption": "Живое окно: табло, никси-трубка, аналоговый рычаг, бассейн, механический поршень"
+    },
+    {
+      "time_uk": "2026-11-27 21:32 UK",
+      "image": "shots/107f8537ea6474a7.png",
+      "caption": "Живое окно: аддоны Create — принтер CEI, вальцы и генератор Crafts & Additions, щётки New Age"
     }
   ],
-  "overall_sim_pct": 83
+  "overall_sim_pct": 85
 }
