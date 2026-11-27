@@ -1,6 +1,6 @@
 {
   "project": "Horizon",
-  "updated_at_uk": "2026-11-27 21:32 UK",
+  "updated_at_uk": "2026-11-27 21:39 UK",
   "head_short": "937e363295",
   "latest_green_ci_run": "46062366540",
   "formula": {
@@ -13,7 +13,7 @@
       "sim_ok": 0.75
     }
   },
-  "overall_pct": 84,
+  "overall_pct": 86,
   "target_pct": 97,
   "eta_honest": "12.5–14 ч календарно (3 окна Claude Pro; ~8.5 ч активной работы)",
   "ci_branches": {
@@ -134,7 +134,7 @@
       "id": "perf_ci",
       "name": "Перф, замеры гипотез и быстрый CI",
       "weight": 0.2,
-      "pct": 70,
+      "pct": 80,
       "items": [
         {
           "id": "pc-1",
@@ -144,12 +144,12 @@
         {
           "id": "pc-2",
           "label": "Task A + M2 HUD-атлас + флаг M1 + spans.rs + gpu_memory.rs",
-          "status": "ci_ok"
+          "status": "live_ok"
         },
         {
           "id": "pc-3",
           "label": "A2 ModTags + ленивые 964 языка",
-          "status": "ci_ok"
+          "status": "live_ok"
         },
         {
           "id": "pc-4",
@@ -162,7 +162,7 @@
           "status": "live_ok"
         }
       ],
-      "sim_pct": 70
+      "sim_pct": 80
     },
     {
       "id": "release_128",
@@ -309,6 +309,11 @@
       "time_uk": "2026-11-27 21:32 UK",
       "note": "Аддоны Create проверены вживую на мини-сервере с их модами",
       "overall_pct": 84
+    },
+    {
+      "time_uk": "2026-11-27 21:39 UK",
+      "note": "pc-2/pc-3 отработали вживую в окнах сегодня: учёт памяти GPU в логе, HUD-атлас, теги модов и языки",
+      "overall_pct": 86
     }
   ],
   "evidence": [
@@ -443,5 +448,5 @@
       "caption": "Живое окно: аддоны Create — принтер CEI, вальцы и генератор Crafts & Additions, щётки New Age"
     }
   ],
-  "overall_sim_pct": 85
+  "overall_sim_pct": 87
 }
