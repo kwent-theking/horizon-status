@@ -1,8 +1,8 @@
 {
   "project": "Horizon",
-  "updated_at_uk": "2026-11-27 06:04 UK",
-  "head_short": "d6dbdc27f8",
-  "latest_green_ci_run": "45945111490",
+  "updated_at_uk": "2026-11-27 06:58 UK",
+  "head_short": "b8b60988fc",
+  "latest_green_ci_run": "45952987142",
   "formula": {
     "rule": "overall_pct = round(sum(weight * subsystem_pct)); subsystem_pct = round(mean(item status weight) * 100); overall_sim_pct: the same with sim_ok = 1 (verified by the CI live stand, not live)",
     "status_weights": {
@@ -17,10 +17,10 @@
   "target_pct": 97,
   "eta_honest": "12.5–14 ч календарно (3 окна Claude Pro; ~8.5 ч активной работы)",
   "ci_branches": {
-    "ci/proto": "running",
+    "ci/proto": "green",
     "ci/proto-b": "green",
     "ci/proto-c": "green",
-    "ci/proto-d": "running"
+    "ci/proto-d": "green"
   },
   "subsystems": [
     {
@@ -273,6 +273,11 @@
     {
       "time_uk": "2026-11-27 06:04 UK",
       "note": "Стенд в CI: облака шрапнели, зенитки, жидкостного снаряда (пакет 21) и дым работают; у дымового взрыва нет звука — передано в работу",
+      "overall_pct": 74
+    },
+    {
+      "time_uk": "2026-11-27 06:58 UK",
+      "note": "Стенд нашёл ещё баг: осколки шрапнели/зенитки рисовались свиньями — теперь осколки как в CBC",
       "overall_pct": 74
     }
   ],
