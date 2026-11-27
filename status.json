@@ -1,8 +1,8 @@
 {
   "project": "Horizon",
-  "updated_at_uk": "2026-11-27 18:18 UK",
-  "head_short": "b8b60988fc",
-  "latest_green_ci_run": "45952987142",
+  "updated_at_uk": "2026-11-27 19:20 UK",
+  "head_short": "fae0a2c6b7",
+  "latest_green_ci_run": "46051739983",
   "formula": {
     "rule": "overall_pct = round(sum(weight * subsystem_pct)); subsystem_pct = round(mean(item status weight) * 100); overall_sim_pct: the same with sim_ok = 1 (verified by the CI live stand, not live)",
     "status_weights": {
@@ -283,6 +283,11 @@
     {
       "time_uk": "2026-11-27 18:18 UK",
       "note": "Живое окно на ПК владельца: ~161 FPS, клиент 1.35 ГБ в мире (мини-стенд); фиксы снаряда и осколков подтверждены вживую; сервер Play2GO был выключен",
+      "overall_pct": 75
+    },
+    {
+      "time_uk": "2026-11-27 19:20 UK",
+      "note": "Память клиента: факты блоков общие — с 128 модами на ~250-310 МБ меньше (титул 1.75 → ~1.35 ГБ, в мире 1.35 → 1.2 ГБ)",
       "overall_pct": 75
     }
   ],
