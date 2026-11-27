@@ -1,6 +1,6 @@
 {
   "project": "Horizon",
-  "updated_at_uk": "2026-11-27 06:58 UK",
+  "updated_at_uk": "2026-11-27 18:18 UK",
   "head_short": "b8b60988fc",
   "latest_green_ci_run": "45952987142",
   "formula": {
@@ -13,7 +13,7 @@
       "sim_ok": 0.75
     }
   },
-  "overall_pct": 74,
+  "overall_pct": 75,
   "target_pct": 97,
   "eta_honest": "12.5–14 ч календарно (3 окна Claude Pro; ~8.5 ч активной работы)",
   "ci_branches": {
@@ -134,7 +134,7 @@
       "id": "perf_ci",
       "name": "Перф, замеры гипотез и быстрый CI",
       "weight": 0.2,
-      "pct": 50,
+      "pct": 55,
       "items": [
         {
           "id": "pc-1",
@@ -159,10 +159,10 @@
         {
           "id": "pc-5",
           "label": "Live-замер гипотез: Private WS RAM (M1) и причина ~30 FPS",
-          "status": "todo"
+          "status": "draft"
         }
       ],
-      "sim_pct": 50
+      "sim_pct": 55
     },
     {
       "id": "release_128",
@@ -279,6 +279,11 @@
       "time_uk": "2026-11-27 06:58 UK",
       "note": "Стенд нашёл ещё баг: осколки шрапнели/зенитки рисовались свиньями — теперь осколки как в CBC",
       "overall_pct": 74
+    },
+    {
+      "time_uk": "2026-11-27 18:18 UK",
+      "note": "Живое окно на ПК владельца: ~161 FPS, клиент 1.35 ГБ в мире (мини-стенд); фиксы снаряда и осколков подтверждены вживую; сервер Play2GO был выключен",
+      "overall_pct": 75
     }
   ],
   "evidence": [
@@ -381,7 +386,17 @@
       "time_uk": "2026-11-27 06:04 UK",
       "image": "shots/492e5424e353347a.png",
       "caption": "Стенд в CI: взрыв зенитного снаряда автопушки CBC, звук flak_round_explosion записан"
+    },
+    {
+      "time_uk": "2026-11-27 18:18 UK",
+      "image": "shots/8989ec72f0be89b4.png",
+      "caption": "Живое окно (RTX 5060): неразорвавшийся снаряд CBC лежит на полу, как на сервере — фикс подтверждён вживую"
+    },
+    {
+      "time_uk": "2026-11-27 18:18 UK",
+      "image": "shots/4c7a8122ab4e7e0d.png",
+      "caption": "Живое окно: взрыв HE-снаряда на свежей сборке"
     }
   ],
-  "overall_sim_pct": 74
+  "overall_sim_pct": 75
 }
