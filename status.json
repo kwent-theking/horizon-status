@@ -1,8 +1,8 @@
 {
   "project": "Horizon",
-  "updated_at_uk": "2026-11-27 04:46 UK",
-  "head_short": "2f9f86569c",
-  "latest_green_ci_run": "45938169259",
+  "updated_at_uk": "2026-11-27 05:18 UK",
+  "head_short": "bd1bfc4fc5",
+  "latest_green_ci_run": "45942197045",
   "formula": {
     "rule": "overall_pct = round(sum(weight * subsystem_pct)); subsystem_pct = round(mean(item status weight) * 100); overall_sim_pct: the same with sim_ok = 1 (verified by the CI live stand, not live)",
     "status_weights": {
@@ -259,6 +259,11 @@
       "time_uk": "2026-11-27 04:46 UK",
       "note": "horizon-probe на стенде со 128 модами: вход, 4176 пакетов 53 видов за 90 с, 0 ошибок декодирования, 403 движения сущностей без сбоев",
       "overall_pct": 70
+    },
+    {
+      "time_uk": "2026-11-27 05:18 UK",
+      "note": "Баг найден стендом и исправлен: снаряды CBC сами просчитывают полёт и падение на клиенте, как в Java",
+      "overall_pct": 70
     }
   ],
   "evidence": [
@@ -346,6 +351,11 @@
       "time_uk": "2026-11-27 01:49 UK",
       "image": "shots/c24f96acbe02a309.png",
       "caption": "Стенд в CI: взрыв HE-снаряда, звук shell_explosion записан"
+    },
+    {
+      "time_uk": "2026-11-27 05:18 UK",
+      "image": "shots/c4b49f090e0c206e.png",
+      "caption": "Стенд в CI нашёл и проверил фикс: неразорвавшийся снаряд CBC теперь лежит на земле, как на сервере (раньше висел в воздухе)"
     }
   ],
   "overall_sim_pct": 70
