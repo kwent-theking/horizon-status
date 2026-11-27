@@ -1,8 +1,8 @@
 {
   "project": "Horizon",
-  "updated_at_uk": "2026-11-27 19:20 UK",
-  "head_short": "fae0a2c6b7",
-  "latest_green_ci_run": "46051739983",
+  "updated_at_uk": "2026-11-27 20:42 UK",
+  "head_short": "937e363295",
+  "latest_green_ci_run": "46062366540",
   "formula": {
     "rule": "overall_pct = round(sum(weight * subsystem_pct)); subsystem_pct = round(mean(item status weight) * 100); overall_sim_pct: the same with sim_ok = 1 (verified by the CI live stand, not live)",
     "status_weights": {
@@ -288,6 +288,11 @@
     {
       "time_uk": "2026-11-27 19:20 UK",
       "note": "Память клиента: факты блоков общие — с 128 модами на ~250-310 МБ меньше (титул 1.75 → ~1.35 ГБ, в мире 1.35 → 1.2 ГБ)",
+      "overall_pct": 75
+    },
+    {
+      "time_uk": "2026-11-27 20:42 UK",
+      "note": "Память клиента с 128 модами: грани моделей общие — титул 1.75 → 1.11-1.14 ГБ за день (факты + модели)",
       "overall_pct": 75
     }
   ],
