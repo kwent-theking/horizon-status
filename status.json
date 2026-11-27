@@ -1,6 +1,6 @@
 {
   "project": "Horizon",
-  "updated_at_uk": "2026-11-26 23:37 UK",
+  "updated_at_uk": "2026-11-27 01:49 UK",
   "head_short": "e80539029d",
   "latest_green_ci_run": "45895971182",
   "formula": {
@@ -86,7 +86,7 @@
         {
           "id": "cbc-6",
           "label": "Трассеры большой/автопушки + снаряды автопушки",
-          "status": "ci_ok"
+          "status": "sim_ok"
         },
         {
           "id": "cbc-7",
@@ -99,7 +99,7 @@
           "status": "live_ok"
         }
       ],
-      "sim_pct": 91
+      "sim_pct": 94
     },
     {
       "id": "create",
@@ -244,6 +244,11 @@
       "time_uk": "2026-11-26 23:37 UK",
       "note": "На сайте синяя полоса: проверено имитацией клиента в CI (не вживую)",
       "overall_pct": 62
+    },
+    {
+      "time_uk": "2026-11-27 01:49 UK",
+      "note": "Стенд в CI заработал: клиент Horizon заходит на настоящий сервер NeoForge на машине GitHub, эффекты и звуки CBC пишутся (синяя полоса)",
+      "overall_pct": 62
     }
   ],
   "evidence": [
@@ -321,7 +326,17 @@
       "time_uk": "2026-11-26 23:15 UK",
       "image": "shots/be3a0f3f65b7962e.png",
       "caption": "Мина миномёта отрисована в мире"
+    },
+    {
+      "time_uk": "2026-11-27 01:49 UK",
+      "image": "shots/495d4e1df36befd1.png",
+      "caption": "Стенд в CI (сервер NeoForge + клиент Horizon на машине GitHub): трассеры пулемётных пуль CBC и звук их пролёта"
+    },
+    {
+      "time_uk": "2026-11-27 01:49 UK",
+      "image": "shots/c24f96acbe02a309.png",
+      "caption": "Стенд в CI: взрыв HE-снаряда, звук shell_explosion записан"
     }
   ],
-  "overall_sim_pct": 62
+  "overall_sim_pct": 63
 }
