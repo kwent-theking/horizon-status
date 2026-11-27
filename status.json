@@ -1,7 +1,7 @@
 {
   "project": "Horizon",
-  "updated_at_uk": "2026-11-27 22:19 UK",
-  "head_short": "e6d1ac176e",
+  "updated_at_uk": "2026-11-27 22:52 UK",
+  "head_short": "606d92c931",
   "latest_green_ci_run": "46071131870",
   "formula": {
     "rule": "overall_pct = round(sum(weight * subsystem_pct)); subsystem_pct = round(mean(item status weight) * 100); overall_sim_pct: the same with sim_ok = 1 (verified by the CI live stand, not live)",
@@ -196,7 +196,7 @@
         {
           "id": "ae-1",
           "label": "Как Sable/Аэронавтика шлют корабли клиенту (пакеты, под-уровни)",
-          "status": "todo"
+          "status": "ci_ok"
         },
         {
           "id": "ae-2",
@@ -224,8 +224,8 @@
           "status": "todo"
         }
       ],
-      "pct": 0,
-      "sim_pct": 0
+      "pct": 12,
+      "sim_pct": 12
     }
   ],
   "milestones": [
@@ -362,6 +362,11 @@
     {
       "time_uk": "2026-11-27 22:19 UK",
       "note": "Новая отдельная цель: полная Аэронавтика + аддон Droneworks Simulated (дроны с FPV); общий процент не меняется",
+      "overall_pct": 86
+    },
+    {
+      "time_uk": "2026-11-27 22:52 UK",
+      "note": "Аэронавтика: разобран протокол Sable, план порта по фазам в docs; в Horizon уже есть частичный порт снимков и под-уровней",
       "overall_pct": 86
     }
   ],
