@@ -1,8 +1,8 @@
 {
   "project": "Horizon",
-  "updated_at_uk": "2026-11-27 01:49 UK",
-  "head_short": "e80539029d",
-  "latest_green_ci_run": "45895971182",
+  "updated_at_uk": "2026-11-27 04:23 UK",
+  "head_short": "2f9f86569c",
+  "latest_green_ci_run": "45938169259",
   "formula": {
     "rule": "overall_pct = round(sum(weight * subsystem_pct)); subsystem_pct = round(mean(item status weight) * 100); overall_sim_pct: the same with sim_ok = 1 (verified by the CI live stand, not live)",
     "status_weights": {
@@ -13,21 +13,21 @@
       "sim_ok": 0.75
     }
   },
-  "overall_pct": 62,
+  "overall_pct": 65,
   "target_pct": 97,
   "eta_honest": "12.5–14 ч календарно (3 окна Claude Pro; ~8.5 ч активной работы)",
   "ci_branches": {
-    "ci/proto": "green",
+    "ci/proto": "running",
     "ci/proto-b": "green",
     "ci/proto-c": "green",
-    "ci/proto-d": "green"
+    "ci/proto-d": "running"
   },
   "subsystems": [
     {
       "id": "core_net",
       "name": "Сеть 767→777, вход и коллизии",
       "weight": 0.2,
-      "pct": 56,
+      "pct": 69,
       "items": [
         {
           "id": "cn-1",
@@ -47,10 +47,10 @@
         {
           "id": "cn-4",
           "label": "Соседние коллизии и outline 3x3x3 (FactsExporter JSON)",
-          "status": "draft"
+          "status": "ci_ok"
         }
       ],
-      "sim_pct": 56
+      "sim_pct": 69
     },
     {
       "id": "cbc",
@@ -249,6 +249,11 @@
       "time_uk": "2026-11-27 01:49 UK",
       "note": "Стенд в CI заработал: клиент Horizon заходит на настоящий сервер NeoForge на машине GitHub, эффекты и звуки CBC пишутся (синяя полоса)",
       "overall_pct": 62
+    },
+    {
+      "time_uk": "2026-11-27 04:23 UK",
+      "note": "Коллизии 3x3x3: экспорт 128 модов прошёл (соседние формы у 6 блоков), подсветка и выбор блока учитывают соседей; тесты звуков CBC сверены с Java",
+      "overall_pct": 65
     }
   ],
   "evidence": [
@@ -338,5 +343,5 @@
       "caption": "Стенд в CI: взрыв HE-снаряда, звук shell_explosion записан"
     }
   ],
-  "overall_sim_pct": 63
+  "overall_sim_pct": 65
 }
