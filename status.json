@@ -1,8 +1,8 @@
 {
   "project": "Horizon",
-  "updated_at_uk": "2026-11-28 03:39 UK",
-  "head_short": "d64cc5ab04",
-  "latest_green_ci_run": "46071131870",
+  "updated_at_uk": "2026-11-28 04:12 UK",
+  "head_short": "af4c414339",
+  "latest_green_ci_run": "46105474145",
   "formula": {
     "rule": "overall_pct = round(sum(weight * subsystem_pct)); subsystem_pct = round(mean(item status weight) * 100); overall_sim_pct: the same with sim_ok = 1 (verified by the CI live stand, not live)",
     "status_weights": {
@@ -383,6 +383,11 @@
       "time_uk": "2026-11-28 03:38 UK",
       "note": "Аэронавтика, фазы 4–5: плавное движение кораблей, можно стоять и ездить на корабле",
       "overall_pct": 86
+    },
+    {
+      "time_uk": "2026-11-28 04:12 UK",
+      "note": "Аэронавтика: пропеллеры и детали рисуются и крутятся",
+      "overall_pct": 86
     }
   ],
   "evidence": [
@@ -530,6 +535,11 @@
       "time_uk": "2026-11-28 03:38 UK",
       "image": "shots/e5c0dc463e5f5bb5.png",
       "caption": "Стенд в CI: игрок стоит на палубе корабля Sable (стекло под ногами) и не проваливается"
+    },
+    {
+      "time_uk": "2026-11-28 04:12 UK",
+      "image": "shots/1dd71820364d903a.png",
+      "caption": "CI-рендер деталей Аэронавтики: пропеллеры и валы в покое (слева) и в работе (справа)"
     }
   ],
   "overall_sim_pct": 87
