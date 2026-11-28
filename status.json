@@ -1,7 +1,7 @@
 {
   "project": "Horizon",
-  "updated_at_uk": "2026-11-27 23:05 UK",
-  "head_short": "606d92c931",
+  "updated_at_uk": "2026-11-28 00:53 UK",
+  "head_short": "68de03a7a0",
   "latest_green_ci_run": "46071131870",
   "formula": {
     "rule": "overall_pct = round(sum(weight * subsystem_pct)); subsystem_pct = round(mean(item status weight) * 100); overall_sim_pct: the same with sim_ok = 1 (verified by the CI live stand, not live)",
@@ -206,7 +206,7 @@
         {
           "id": "ae-3",
           "label": "Под-уровни Sable на клиенте: блоки корабля видны и двигаются",
-          "status": "todo"
+          "status": "sim_ok"
         },
         {
           "id": "ae-4",
@@ -224,8 +224,8 @@
           "status": "todo"
         }
       ],
-      "pct": 25,
-      "sim_pct": 25
+      "pct": 38,
+      "sim_pct": 42
     }
   ],
   "milestones": [
@@ -373,6 +373,11 @@
       "time_uk": "2026-11-27 23:05 UK",
       "note": "Аэронавтика, фаза 0: Sable на стенде в CI, корабль собирается командой, клиент получает позы; дальше — отрисовка корабля",
       "overall_pct": 86
+    },
+    {
+      "time_uk": "2026-11-28 00:53 UK",
+      "note": "Аэронавтика: корабли Sable теперь видны в Horizon и двигаются (фазы 1–3)",
+      "overall_pct": 86
     }
   ],
   "evidence": [
@@ -510,6 +515,11 @@
       "time_uk": "2026-11-27 23:05 UK",
       "image": "shots/09ae3d93b4fb6395.png",
       "caption": "Стенд в CI с Sable: плот перед сборкой в корабль (после сборки Horizon его пока не рисует)"
+    },
+    {
+      "time_uk": "2026-11-28 00:53 UK",
+      "image": "shots/0b8cd77aa4b999b4.png",
+      "caption": "Стенд в CI: корабль Sable (плот из досок, стекла и золота) виден в Horizon и упал на платформу по физике"
     }
   ],
   "overall_sim_pct": 87
