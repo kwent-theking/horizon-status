@@ -1,7 +1,7 @@
 {
   "project": "Horizon",
-  "updated_at_uk": "2026-11-28 00:53 UK",
-  "head_short": "68de03a7a0",
+  "updated_at_uk": "2026-11-28 03:38 UK",
+  "head_short": "d64cc5ab04",
   "latest_green_ci_run": "46071131870",
   "formula": {
     "rule": "overall_pct = round(sum(weight * subsystem_pct)); subsystem_pct = round(mean(item status weight) * 100); overall_sim_pct: the same with sim_ok = 1 (verified by the CI live stand, not live)",
@@ -211,7 +211,7 @@
         {
           "id": "ae-4",
           "label": "Полёт: пропеллеры, управление, анимации, коллизии с кораблём",
-          "status": "todo"
+          "status": "sim_ok"
         },
         {
           "id": "ae-5",
@@ -224,8 +224,8 @@
           "status": "todo"
         }
       ],
-      "pct": 38,
-      "sim_pct": 42
+      "pct": 50,
+      "sim_pct": 58
     }
   ],
   "milestones": [
@@ -378,6 +378,11 @@
       "time_uk": "2026-11-28 00:53 UK",
       "note": "Аэронавтика: корабли Sable теперь видны в Horizon и двигаются (фазы 1–3)",
       "overall_pct": 86
+    },
+    {
+      "time_uk": "2026-11-28 03:38 UK",
+      "note": "Аэронавтика, фазы 4–5: плавное движение кораблей, можно стоять и ездить на корабле",
+      "overall_pct": 86
     }
   ],
   "evidence": [
@@ -520,6 +525,11 @@
       "time_uk": "2026-11-28 00:53 UK",
       "image": "shots/0b8cd77aa4b999b4.png",
       "caption": "Стенд в CI: корабль Sable (плот из досок, стекла и золота) виден в Horizon и упал на платформу по физике"
+    },
+    {
+      "time_uk": "2026-11-28 03:38 UK",
+      "image": "shots/e5c0dc463e5f5bb5.png",
+      "caption": "Стенд в CI: игрок стоит на палубе корабля Sable (стекло под ногами) и не проваливается"
     }
   ],
   "overall_sim_pct": 87
