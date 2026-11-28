@@ -1,6 +1,6 @@
 {
   "project": "Horizon",
-  "updated_at_uk": "2026-11-28 03:38 UK",
+  "updated_at_uk": "2026-11-28 03:39 UK",
   "head_short": "d64cc5ab04",
   "latest_green_ci_run": "46071131870",
   "formula": {
@@ -211,7 +211,7 @@
         {
           "id": "ae-4",
           "label": "Полёт: пропеллеры, управление, анимации, коллизии с кораблём",
-          "status": "sim_ok"
+          "status": "draft"
         },
         {
           "id": "ae-5",
@@ -224,8 +224,8 @@
           "status": "todo"
         }
       ],
-      "pct": 50,
-      "sim_pct": 58
+      "pct": 42,
+      "sim_pct": 46
     }
   ],
   "milestones": [
